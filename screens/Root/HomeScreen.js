@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import firebase from 'firebase';
 
-import { MonoText } from '../components/StyledText';
+import { MonoText } from '../../components/StyledText';
 
 export default function HomeScreen() {
   const logout=()=>{
@@ -21,8 +21,8 @@ export default function HomeScreen() {
           <Image
             source={
               __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
+                ? require('../../assets/images/robot-dev.png')
+                : require('../../assets/images/robot-prod.png')
             }
             style={styles.welcomeImage}
           />

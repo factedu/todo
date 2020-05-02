@@ -4,8 +4,8 @@ import * as React from 'react';
 import Color from './../constants/Colors';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import HomeScreen from '../screens/Root/HomeScreen';
+import LinksScreen from '../screens/Root/LinksScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
