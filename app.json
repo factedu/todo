@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "FirebaseTestApp",
+    "slug": "FirebaseTestApp",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android":{
+      "package":"fact.todo",
+      "googleServicesFile":"./constants/google-services.json"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier":"com.factedu.todo",
+      "config":{
+        "googleSignIn":{
+          "reservedClientId":"com.googleusercontent.apps.77578344225-vmn2nb51forkbhqjn553gi73kjp60lsu"
+        }
+      },
+      "googleServicesFile":"./constants/GoogleService-Info.plist"
+    }
+  }
+}
