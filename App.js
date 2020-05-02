@@ -8,10 +8,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 
-import LoginScreen from './screens/LoginScreen';
-import SignupScreen from './screens/SignupScreen';
-import LoadingScreen from './screens/LoadingScreen';
-import DashboardScreen from './screens/DashboardScreen';
+import LoginScreen from './screens/Auth/LoginScreen';
+import SignupScreen from './screens/Auth/SignupScreen';
+import LoadingScreen from './screens/Auth/LoadingScreen';
+import DashboardScreen from './screens/Auth/DashboardScreen';
+import AuthNavigator from './screens/Auth/AuthNavigator';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
@@ -78,12 +79,7 @@ export default function App(props) {
               isLoggedIn ? (
                 <Stack.Screen name="Root" component={BottomTabNavigator} />
               ) : (
-                  <>
-                    <Stack.Screen name="Loading" component={LoadingScreen} options={{headerShown:false}} />
-                    <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}} />
-                    <Stack.Screen name="Signup" component={SignupScreen}options={{headerShown:false}} />
-                    <Stack.Screen name="Dashboard" component={DashboardScreen} options={{headerShown:false}} />
-                  </>
+                  <Stack.Screen name="Auth" options={{ headerShown: false }} component={AuthNavigator}/>
                 )
             }
           </Stack.Navigator>
