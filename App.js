@@ -6,12 +6,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
-
-import LoginScreen from './screens/Auth/LoginScreen';
-import SignupScreen from './screens/Auth/SignupScreen';
-import LoadingScreen from './screens/Auth/LoadingScreen';
-import DashboardScreen from './screens/Auth/DashboardScreen';
 import AuthNavigator from './screens/Auth/AuthNavigator';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
