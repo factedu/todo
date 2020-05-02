@@ -67,7 +67,7 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
+yarn.lock
 # dotenv environment variables file
 .env
 .env.test
@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Secure files
+/constants/firebase.config.js
+/constants/google-services.json
+/constants/GoogleService-Info.plist
