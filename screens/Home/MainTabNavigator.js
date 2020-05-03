@@ -136,7 +136,7 @@ const ExploreStackScreen = ({navigation})=>(
             fontWeight:'bold'
         }
     }}>
-        <ExploreStack.Screen name="Profile" component={ExploreScreen} options={{
+        <ExploreStack.Screen name="Explore" component={ExploreScreen} options={{
             headerLeft: () => (
                 <Icon.Button name="ios-menu" size={25} backgroundColor={Colors.secondry2} onPress={() => navigation.openDrawer()}></Icon.Button>
             )
