@@ -103,6 +103,11 @@ dist
 # TernJS port file
 .tern-port
 
+# Expo files
+.expo/
+.expo/packager-info.json
+.expo/settings.json
+
 # Secure files
 /constants/firebase.config.js
 /constants/google-services.json
