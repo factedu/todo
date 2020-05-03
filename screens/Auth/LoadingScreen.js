@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import firebase from 'firebase';
 class LoadingScreen extends Component {
     constructor(props) {
@@ -13,7 +13,8 @@ class LoadingScreen extends Component {
     checkIfLoggedIn(){
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                this.props.navigation.navigate('Home');
+                // TODO:: handle user logged in (it is auto handled by router at App.js)
+                // this.props.navigation.navigate('Home');
             }else{
                 this.props.navigation.navigate('Login');
             }
@@ -22,7 +23,7 @@ class LoadingScreen extends Component {
 
     render() {
         return (
-            <View style={styles.containser}>
+            <View style={styles.container}>
                 <ActivityIndicator size='large' />
             </View>
         );
@@ -32,7 +33,7 @@ class LoadingScreen extends Component {
 export default LoadingScreen;
 
 const styles = StyleSheet.create({
-    containser:{
+    container:{
         flex:1,
         alignItems:'center',
         justifyContent:'center'

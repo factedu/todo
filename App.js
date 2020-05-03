@@ -5,36 +5,32 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import AuthNavigator from './screens/Auth/AuthNavigator';
 
-import BottomTabNavigator from './navigation/BottomTabNavigator';
-import useLinking from './navigation/useLinking';
+import MainTabNavigator from './screens/Home/MainTabNavigator';
 
 // firebase related setup below
 import { firebaseConfig } from './constants/firebase.config';
 import firebase from 'firebase';
+import { DrawerContent } from './screens/Home/DrawerContent';
 
 firebase.initializeApp(firebaseConfig);
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
-  const [initialNavigationState, setInitialNavigationState] = React.useState();
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const containerRef = React.useRef();
-  const { getInitialState } = useLinking(containerRef);
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
         SplashScreen.preventAutoHide();
-
-        // Load our initial navigation state
-        setInitialNavigationState(await getInitialState());
-        console.log(this.initialNavigationState);
         // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
@@ -52,11 +48,10 @@ export default function App(props) {
     loadResourcesAndDataAsync();
   }, []);
 
-  firebase.auth().onAuthStateChanged(user=>{
-    if(user){
-      console.log(user);
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
       setIsLoggedIn(true);
-    }else{
+    } else {
       setIsLoggedIn(false);
     }
   })
@@ -67,16 +62,18 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-          <Stack.Navigator>
-            {
-              isLoggedIn ? (
-                <Stack.Screen name="Root" component={BottomTabNavigator} />
-              ) : (
-                  <Stack.Screen name="Auth" options={{ headerShown: false }} component={AuthNavigator}/>
-                )
-            }
-          </Stack.Navigator>
+        <NavigationContainer ref={containerRef}>
+          {
+            isLoggedIn ? (
+              <Drawer.Navigator initialRouteName="HomeDrawer" drawerContent={props=><DrawerContent {...props}/>} >
+                <Drawer.Screen name="HomeDrawer" component={MainTabNavigator} />
+              </Drawer.Navigator>
+            ) : (
+                <Stack.Navigator>
+                  <Stack.Screen name="Auth" options={{ headerShown: false }} component={AuthNavigator} />
+                </Stack.Navigator>
+              )
+          }
         </NavigationContainer>
       </View>
     );
