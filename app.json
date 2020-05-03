@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "FirebaseTestApp",
-    "slug": "FirebaseTestApp",
+    "name": "React Native Firebase Starter",
+    "slug": "Firebase Starter Kit",
     "platforms": [
       "ios",
       "android",
