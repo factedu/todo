@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "React Native Firebase Starter",
-    "slug": "Firebase Starter Kit",
+    "name": "F.A.C.T",
+    "slug": "factedu-app",
     "platforms": [
       "ios",
       "android",
