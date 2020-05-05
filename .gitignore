@@ -105,6 +105,7 @@ dist
 
 # Expo files
 .expo/
+.expo/*
 .expo/packager-info.json
 .expo/settings.json
 
@@ -112,3 +113,6 @@ dist
 /constants/firebase.config.js
 /constants/google-services.json
 /constants/GoogleService-Info.plist
+
+# builds
+web-build/
