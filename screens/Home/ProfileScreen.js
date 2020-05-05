@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
-import { Avatar, Button, Card, TextInput, Paragraph } from 'react-native-paper';
+import { View, StyleSheet} from 'react-native';
+import { Avatar, Divider, Banner, Button, Card, TextInput, Paragraph } from 'react-native-paper';
 import firebase from 'firebase';
 
 const ProfileScreen = () => {
@@ -37,30 +37,25 @@ const ProfileScreen = () => {
       })
   };
 
-  let verifyEmailButton = null;
-  if (!user.emailVerified) {
-    verifyEmailButton = (
-      <Card style={{ width: '80%' }}>
-        <Card.Title style={{ alignContent: 'center' }} title="Email not verified!!" />
-        <Card.Content>
-          <Paragraph>Your email is not verified yest. We can send you verification mail again!!</Paragraph>
-        </Card.Content>
-        <Card.Actions style={{ justifyContent: 'center', marginVertical: 15 }}>
-          <Button
-            onPress={() => sendVerificationEmail()}
-            style={{ bottom: 15 }}
-            icon="email" mode="outlined" uppercase={false}
-            loading={sending}
-          >
-            Send Verification Email
-          </Button>
-        </Card.Actions>
-      </Card>
-    );
-  }
+  let verifyEmailButton = (
+    <Banner
+      visible={!user.emailVerified}
+      actions={[
+        {
+          label: 'Send Vefication Email',
+          onPress: () => sendVerificationEmail(),
+          loading: sending
+        },
+      ]}
+    >
+      Your email is not yet verified. After your email verification please signout and login again in app for changes to take effect.
+    </Banner>
+  );
+
   return (
     <View style={styles.container}>
       <Card style={{ width: '100%' }}>
+
         <Card.Title title={displayName} subtitle={user.email} left={LeftContent} />
         {/* <Card.Cover source={{ uri: 'https://picsum.photos/700' }} /> */}
         <Card.Content>
@@ -70,10 +65,10 @@ const ProfileScreen = () => {
             value={displayName}
             onChangeText={text => setDisplayName(text)}
           />
-
         </Card.Content>
+        <Divider/>
+        {verifyEmailButton}
       </Card>
-      {verifyEmailButton}
       <View>
         <Button
           onPress={() => updateProfile()}
