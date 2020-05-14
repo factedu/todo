@@ -9,6 +9,6 @@ Part of tutorial series "Create Advance Todo app using React Native and Expo" Au
 ### Medium Blog link
 1. https://medium.com/fact-tutorials/create-an-advance-to-do-app-using-react-native-37aa4c47417a
 
-### Discord Discussion Chanel
+### Discord Discussion Channel Joining Links
 1. Text : https://discord.gg/X7ChWm
 2. Video : Send request to factedu@gmail.com
