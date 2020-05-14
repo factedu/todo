@@ -11,12 +11,11 @@ import AuthNavigator from './screens/Auth/AuthNavigator';
 
 import MainTabNavigator from './screens/Home/MainTabNavigator';
 
-// firebase related setup below
-import { firebaseConfig } from './constants/firebase.config';
-import firebase from 'firebase';
-import { DrawerContent } from './screens/Home/DrawerContent';
+// changed to have a single firebase from services 
+import firebase from './services/firebase.service';
 
-firebase.initializeApp(firebaseConfig);
+
+import { DrawerContent } from './screens/Home/DrawerContent';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
