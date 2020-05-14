@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
-import DaySlider from './../../components/day-slider';
-import Todos from './../../components/todos';
-import Color from './../../constants/Colors';
+import DaySlider from './../components/day-slider';
+import Todos from './../components/todos';
+import Color from '../constraints/color';
 import moment from 'moment';
 
 export default function TodoScreen() {
